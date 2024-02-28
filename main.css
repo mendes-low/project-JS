@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope');
+
+:root {
+    --header-default-background: hsla(220, 5%, 38%, 1);
+    --header-hover-background: hsla(222, 22%, 12%, 1);
+    --header-top-background: hsla(0, 0%, 96%, 1);
+    --button-default-background: hsla(55, 97%, 62%, 1);
+    --search-border-bottom: hsla(240, 2%, 82%, 1);
+    --header-line: hsla(210, 5%, 91%, 1);
+    --navbar-text: hsla(218, 7%, 29%, 1);
+    --stock-button-backgroud: hsla(0, 0%, 100%, 1);
+    --stock-button-border: hsla(240, 2%, 82%, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    margin-top: 80px;
+}
+
+/* header */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: hsla(0, 0%, 100%, 1);
+}
+
+/* ---------------------------------------------------- */
+
+/* header-top */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 42px;
+    padding: 10px 140px;
+    background-color: var(--header-top-background);
+}
+
+/* ---------------------------------------------------- */
+
+/* header-select_location */
+.select-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 83px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+    color: var(--header-default-background);
+}
+
+.select-location ion-icon {
+    font-size: 20px;
+}
+
+.location-name {
+    font: 500 15px/22px 'Manrope';
+}
+
+.header-top_navbar {
+    display: flex;
+    align-self: start;
+    gap: 24px;
+    width: 457px;
+    height: 22px;
+    list-style: none;
+    color: var(--header-default-background);
+}
+
+.header-top_navbar li {
+    font: 500 15px/22px 'Manrope';
+}
+
+/* --------------------------- */
+
+/* header-bottom */
+/* .header-bottom {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+} */
+
+.header-bottom_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 140px;
+    max-height: 48px;
+}
+
+.header-bottom_right {
+    display: flex;
+    align-items: center;
+    max-width: 886px;
+    gap: 16px;
+}
+
+.header-bottom_right p {
+    font: 500 15px/22px 'Manrope';
+}
+
+.catologe {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: var(--button-default-background);
+    padding: 12px 20px;
+    gap: 8px;
+}
+
+.catologe p {
+    font: 500 18px/24px 'Manrope';
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 444px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--search-border-bottom);
+    background-color: var(--header-top-background);
+}
+
+.search-container input {
+    font: 500 18px/24px 'Manrope';
+    background-color: var(--header-top-background);
+    border: none;
+}
+
+.search-container ion-icon {
+    font-size: 24px;
+}
+
+.header-bottom_actions {
+    display: flex;
+    align-items: center;
+    width: 246px;
+}
+
+.actions-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 82px;
+}
+
+.actions-item p {
+    font: 500 15px/22px 'Manrope';
+}
+
+/* ----------------------------------- */
+
+/* navbar */
+.header-navbar {
+    max-height: 48px;
+    border: 1px solid var(--header-line);
+    border-left: none;
+    border-right: none;
+}
+
+.header-navbar_container {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 10px;
+}
+
+.header-navbar_container li {
+    color: var(--navbar-text);
+    font: 500 16px/24px 'Manrope';
+}
+
+/* ------------------------------------ */
+
+
+/* slider */
+/* .slider {
+    display: flex;
+    justify-content: center;
+}
+
+.slider-container {
+    width: 1360px;
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    width: 100%;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+} */
+
+/* ------------------------------------- */
+
+/* stocks */
+.stocks,
+.popular-categories {
+    display: flex;
+    justify-content: center;
+}
+
+.popular-categories_container,
+.stocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 496px;
+    width: 1160px;
+}
+
+.stock-card {
+    display: flex;
+    justify-content: space-between;
+    width: 572px;
+    height: 208px;
+    border: 1px solid var(--header-line);
+}
+
+.stocks-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.img-box {
+    display: grid;
+    place-items: center;
+    width: 278px;
+    height: 208px;
+}
+
+.img-box img {
+    width: 60%;
+    height: 70%;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 294px;
+    height: 208px;
+    padding: 16px;
+    font: 500 16px/24px 'Manrope';
+    border-left: 1px solid var(--header-line);
+}
+
+.text-box_price {
+    display: flex;
+    gap: 8px;
+}
+
+#old-price {
+    text-decoration: line-through;
+}
+
+.text-box button {
+    width: 262px;
+    border: none;
+    padding: 12px 24px;
+    font: 500 16px/24px 'Manrope';
+    background-color: var(--button-default-background);
+}
+
+.popular-categories_title,
+.popular-brand_title,
+.stock_title {
+    display: flex;
+    align-items: center;
+    width: 1160px;
+    justify-content: space-between;
+}
+
+.popular-categories_title h2,
+.popular-brand_title h2,
+.popular-products_title h2,
+.stock_title h2 {
+    font: 600 34px/44px 'Manrope'
+}
+
+.popular-categories_title button,
+.popular-brand_title button,
+.stock_title button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--stock-button-border);
+    background: var(--stock-button-backgroud);
+    padding: 12px 16px;
+    font: 500 16px/24px 'Manrope';
+}
+
+.text-box_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 112px;
+    gap: 12px;
+}
+
+/* ------------------------------------- */
+
+/* popular-categories */
+.popular-categories_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-top-background);
+    width: 180px;
+    height: 180px;
+}
+
+.popular-categories_card_img img {
+    max-width: 180px;
+    max-height: 128px;
+}
+
+.popular-categories_card_text p {
+    font: 500 16px/24px 'Manrope';
+}
+
+.popular-categories_cards {
+    display: grid;
+    grid-template-columns: repeat(6, 180px);
+    gap: 16px;
+}
+
+/* ------------------------------------- */
+
+/* popular-product */
+.popular-products_container {
+    display: flex;
+    width: 1160px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.popular-products_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 278px;
+    border: 1px solid var(--header-line);
+    background: var(--stock-button-backgroud);
+}
+
+.popular-products_img {
+    display: grid;
+    place-items: center;
+    width: 278px;
+    height: 208px;
+}
+
+.popular-products_img img {
+    width: 60%;
+    height: 60%;
+}
+
+.popular-products_text-box {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.popular-products_bottom {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    border-top: 1px solid var(--header-line);
+    background: var(--stock-button-backgroud);
+}
+
+.popular-products_text-box_title {
+    height: 72px;
+    align-self: stretch;
+    font: 500 16px/24px 'Manrope';
+}
+
+.popular-products_text-box_price {
+    font: 700 20px/28px 'Manrope';
+}
+
+.popular-products_bottom button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    background-color: var(--button-default-background);
+}
+
+.popular-products_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+/* -------------------------------------- */
+
+/* popular-brands */
+.popular-brands_container {
+    
+}
+
+.popular-brands_card {
+    width: 180px;
+    height: 124px;
+    border: 1px solid lightgray;
+}
+.popular-brands_card img {
+    width: 100%;
+    height: 100%;
+}
+
+/* -------------------------------------- */
