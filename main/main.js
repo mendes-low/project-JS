@@ -98,20 +98,20 @@ function createStockCard(stock) {
     return stockCard;
 }
 function createPopularCategoryCard(data) {
-    var cardDiv = document.createElement('div');
+    const cardDiv = document.createElement('div');
     cardDiv.classList.add('popular-categories_card');
 
-    var textDiv = document.createElement('div');
+    const textDiv = document.createElement('div');
     textDiv.classList.add('popular-categories_card_text');
-    var paragraph = document.createElement('p');
+    const paragraph = document.createElement('p');
     paragraph.textContent = data.name;
     textDiv.appendChild(paragraph);
 
-    var imgDiv = document.createElement('div');
+    const imgDiv = document.createElement('div');
     imgDiv.classList.add('popular-categories_card_img');
-    var image = document.createElement('img');
-    image.src = data.img;
-    imgDiv.appendChild(image);
+    const img = document.createElement('img');
+    img.src = data.img;
+    imgDiv.appendChild(img);
 
     cardDiv.appendChild(textDiv);
     cardDiv.appendChild(imgDiv);
@@ -122,12 +122,12 @@ function createProductCard(productData) {
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('popular-products_card');
 
-    const imageContainer = document.createElement('div');
-    imageContainer.classList.add('popular-products_img');
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('popular-products_img');
 
-    const image = document.createElement('img');
-    image.src = productData.img;
-    imageContainer.appendChild(image);
+    const img = document.createElement('img');
+    img.src = productData.img;
+    imgContainer.appendChild(img);
 
     const bottomContainer = document.createElement('div');
     bottomContainer.classList.add('popular-products_bottom');
@@ -156,10 +156,21 @@ function createProductCard(productData) {
     bottomContainer.appendChild(textBox);
     bottomContainer.appendChild(button);
 
-    cardContainer.appendChild(imageContainer);
+    cardContainer.appendChild(imgContainer);
     cardContainer.appendChild(bottomContainer);
 
     return cardContainer;
+}
+function createPopularBrandCard(brandData) {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('popular-brands_card');
+
+    const img = document.createElement('img');
+    img.setAttribute('src', brandData.image);
+
+    cardDiv.appendChild(img);
+
+    return cardDiv;
 }
 
 // Stocks
@@ -170,7 +181,6 @@ async function getStock() {
     const stocks = data[0].stocks;
     return stocks;
 }
-
 async function addToContainerStock() {
     try {
         const stockContainer = document.querySelector('.stocks-cards');
@@ -191,7 +201,6 @@ async function getPopularCategories() {
     const categories = data[0].popularCategories;
     return categories;
 }
-
 async function addToContainerPopularCategeries() {
     try {
         const popularCategoriesContainer = document.querySelector('.popular-categories_cards');
@@ -212,7 +221,6 @@ async function getPopularProducts() {
     const products = data[0].popularProducts;
     return products;
 }
-
 async function addToContainerPopularProduct() {
     try {
         const popularProductsContainer = document.querySelector('.popular-products_cards')
@@ -225,9 +233,25 @@ async function addToContainerPopularProduct() {
 }
 addToContainerPopularProduct();
 
-
-
-
+// popularBrands
+async function getPopularBrands() {
+    const popularBrandsUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards'
+    const response = await fetch(popularBrandsUrl);
+    const data = await response.json();
+    const brands = data[0].popularBrands;
+    return brands;
+}
+async function addToContainerPopularBrands() {
+    try {
+        const popularBrandsContainer = document.querySelector('.popular-brands_cards');
+        const data = await getPopularBrands();
+        data.forEach(item => popularBrandsContainer.appendChild(createPopularBrandCard(item)));
+    }
+    catch {
+        document.write('Error');
+    }
+}
+addToContainerPopularBrands();
 
 
 
