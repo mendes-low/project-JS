@@ -160,30 +160,6 @@
 
 /* ----------------------------------- */
 
-/* navbar */
-.header-navbar {
-    max-height: 48px;
-    border: 1px solid var(--header-line);
-    border-left: none;
-    border-right: none;
-}
-
-.header-navbar_container {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin: 10px;
-}
-
-.header-navbar_container li {
-    color: var(--navbar-text);
-    font: 500 16px/24px 'Manrope';
-}
-
-/* ------------------------------------ */
-
 /* footer */
 .footer-bottom {
     display: flex;
@@ -246,25 +222,6 @@
     align-items: flex-start;
     gap: 16px;
     flex-shrink: 0;
-}
-
-.footer-bottom_down {
-    display: flex;
-    width: 1160px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-bottom_down-images {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.footer-line {
-    width: 1160px;
-    height: 1px;
-    background-color: #5D6066;
 }
 
 /* -------------------------------------- */
