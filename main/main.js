@@ -1,3 +1,5 @@
+export { getStock, getPopularProducts }
+
 function createStockCard(stock) {
     const stockCard = document.createElement("div");
     stockCard.classList.add("stock-card");
@@ -131,7 +133,6 @@ async function getStock() {
     const stocks = data[0].stocks;
     return stocks;
 }
-export { getStock }
 
 async function addToContainerStock() {
     try {
@@ -203,4 +204,5 @@ async function addToContainerPopularBrands() {
         console.error('Error');;
     }
 }
-addToContainerPopularBrands(); 
+addToContainerPopularBrands();
+
