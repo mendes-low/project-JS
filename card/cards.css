@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope');
+
+:root {
+    --header-default-background: hsla(220, 5%, 38%, 1);
+    --header-hover-background: hsla(222, 22%, 12%, 1);
+    --header-top-background: hsla(0, 0%, 96%, 1);
+    --button-default-background: hsla(55, 97%, 62%, 1);
+    --search-border-bottom: hsla(240, 2%, 82%, 1);
+    --header-line: hsla(210, 5%, 91%, 1);
+    --navbar-text: hsla(218, 7%, 29%, 1);
+    --stock-button-backgroud: hsla(0, 0%, 100%, 1);
+    --stock-button-border: hsla(240, 2%, 82%, 1);
+    --background-footer: #2F323A;
+    --footer-text: hsla(210, 5%, 91%, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope';
+}
+
+/* header */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: hsla(0, 0%, 100%, 1);
+}
+
+/* ---------------------------------------------------- */
+
+/* header-top */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 42px;
+    padding: 10px 140px;
+    background-color: var(--header-top-background);
+}
+
+/* ---------------------------------------------------- */
+
+/* header-select_location */
+.select-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 83px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+    color: var(--header-default-background);
+}
+
+.select-location ion-icon {
+    font-size: 20px;
+}
+
+.location-name {
+    font: 500 15px/22px 'Manrope';
+}
+
+.header-top_navbar {
+    display: flex;
+    align-self: start;
+    gap: 24px;
+    width: 457px;
+    height: 22px;
+    list-style: none;
+    color: var(--header-default-background);
+}
+
+.header-top_navbar li {
+    font: 500 15px/22px 'Manrope';
+}
+
+/* --------------------------- */
+
+.header-bottom_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 140px;
+    max-height: 48px;
+}
+
+.header-bottom_right {
+    display: flex;
+    align-items: center;
+    max-width: 886px;
+    gap: 16px;
+}
+
+.header-bottom_right p {
+    font: 500 15px/22px 'Manrope';
+}
+
+.catologe {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: var(--button-default-background);
+    padding: 12px 20px;
+    gap: 8px;
+}
+
+.catologe ion-icon {
+    font-size: 24px;
+}
+
+.catologe p {
+    font: 500 18px/24px 'Manrope';
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 444px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--search-border-bottom);
+    background-color: var(--header-top-background);
+}
+
+.search-container input {
+    font: 500 18px/24px 'Manrope';
+    background-color: var(--header-top-background);
+    border: none;
+    outline: none;
+}
+
+.search-container ion-icon {
+    font-size: 24px;
+}
+
+.header-bottom_actions {
+    display: flex;
+    align-items: center;
+    width: 246px;
+}
+
+.actions-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 82px;
+}
+
+.actions-item ion-icon {
+    font-size: 24px;
+}
+
+.actions-item p {
+    font: 500 15px/22px 'Manrope';
+}
+
+/* ----------------------------------- */
+
+/* navbar */
+.header-navbar {
+    max-height: 48px;
+    border: 1px solid var(--header-line);
+    border-left: none;
+    border-right: none;
+}
+
+.header-navbar_container {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 10px;
+}
+
+.header-navbar_container li {
+    color: var(--navbar-text);
+    font: 500 16px/24px 'Manrope';
+}
+
+/* ------------------------------------ */
+
+/* footer */
+.footer-bottom {
+    display: flex;
+    padding: 40px 140px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--background-footer);
+    font: 500 16px/24px 'Manrope';
+    color: var(--footer-text);
+    margin-top: 80px;
+}
+
+.footer-bottom_up {
+    display: flex;
+    width: 1160px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-bottom_right-items {
+    display: flex;
+    width: 278px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.footer-bottom_right-items_three {
+    width: 180px;
+}
+
+.footer-bottom_left {
+    display: flex;
+    height: 132px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-bottom_left-info {
+    display: flex;
+    width: 278px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footer-bottom_left-info_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-bottom_right {
+    display: flex;
+    width: 768px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.footer-bottom_down {
+    display: flex;
+    width: 1160px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom_down-images {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-line {
+    width: 1160px;
+    height: 1px;
+    background-color: #5D6066;
+}
+
+/* -------------------------------------- */
+
+/* card */
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 1160px; */
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.card {
+    display: flex;
+    height: 428px;
+    width: 1160px;
+    align-items: flex-start;
+    border: 1px solid var(--header-line);
+}
+
+.card_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 540px;
+    padding: 24px;
+}
+
+.card_img {
+    display: grid;
+    place-items: center;
+    width: 572px;
+    height: 428px;
+    border-right: 1px solid var(--header-line);
+}
+
+.card_img img {
+    width: 50%;
+    height: 60%;
+}
+
+.cart-button button {
+    width: 246px;
+    border: none;
+    padding: 12px 24px;
+    background-color: var(--button-default-background); 
+}
+
+.card-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ------------------------------------------ */
+
+/* card-description */
+.card-description {
+    display: flex;
+    width: 1160px;
+    padding: 60px 200px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--header-line);
+}
+
+.card-description_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 600px;
+}
+
+/* ----------------------------------------- */

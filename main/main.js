@@ -1,53 +1,3 @@
-// const prevBtn = document.querySelector(".prev");
-// const nextBtn = document.querySelector(".next");
-// const slidesContainer = document.querySelector(".slides");
-// let slides = document.querySelectorAll(".slide");
-// const slideWidth = slides[0].clientWidth;
-// let currentIndex = 1; // Начальный индекс теперь 1
-
-// // Копируем первый и последний слайды и добавляем их в конец и начало списка соответственно
-// const firstSlideClone = slides[0].cloneNode(true);
-// const lastSlideClone = slides[slides.length - 1].cloneNode(true);
-// slidesContainer.appendChild(firstSlideClone);
-// slidesContainer.insertBefore(lastSlideClone, slides[0]);
-
-// slides = document.querySelectorAll(".slide");
-
-// // Функция для перемещения слайдов влево
-// function slideLeft() {
-//     currentIndex--;
-//     slidesContainer.style.transition = "transform 0.5s ease";
-//     slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-//     if (currentIndex === 0) {
-//         setTimeout(() => {
-//             slidesContainer.style.transition = "none";
-//             currentIndex = slides.length - 2; // Переносим к предпоследнему слайду
-//             slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-//         }, 500);
-//     }
-// }
-
-// // Функция для перемещения слайдов вправо
-// function slideRight() {
-//     currentIndex++;
-//     slidesContainer.style.transition = "transform 0.5s ease";
-//     slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-//     if (currentIndex === slides.length - 1) {
-//         setTimeout(() => {
-//             slidesContainer.style.transition = "none";
-//             currentIndex = 1; // Переносим к второму слайду
-//             slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-//         }, 500);
-//     }
-// }
-
-// // Обработчики событий для кнопок "Previous" и "Next"
-// prevBtn.addEventListener("click", slideLeft);
-// nextBtn.addEventListener("click", slideRight);
-
-
 function createStockCard(stock) {
     const stockCard = document.createElement("div");
     stockCard.classList.add("stock-card");
@@ -181,6 +131,8 @@ async function getStock() {
     const stocks = data[0].stocks;
     return stocks;
 }
+export { getStock }
+
 async function addToContainerStock() {
     try {
         const stockContainer = document.querySelector('.stocks-cards');
@@ -188,7 +140,7 @@ async function addToContainerStock() {
         data.forEach(item => stockContainer.appendChild(createStockCard(item)));
     }
     catch {
-        document.write('Error')
+        console.error('Error');
     }
 }
 addToContainerStock();
@@ -208,14 +160,14 @@ async function addToContainerPopularCategeries() {
         data.forEach(item => popularCategoriesContainer.appendChild(createPopularCategoryCard(item)));
     }
     catch {
-        document.write('Error')
+        console.error('Error');
     }
 }
 addToContainerPopularCategeries();
 
 // PopularProducts
 async function getPopularProducts() {
-    const popularProductsUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards'
+    const popularProductsUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards';
     const response = await fetch(popularProductsUrl);
     const data = await response.json();
     const products = data[0].popularProducts;
@@ -223,12 +175,12 @@ async function getPopularProducts() {
 }
 async function addToContainerPopularProduct() {
     try {
-        const popularProductsContainer = document.querySelector('.popular-products_cards')
+        const popularProductsContainer = document.querySelector('.popular-products_cards');
         const data = await getPopularProducts();
         data.forEach(item => popularProductsContainer.appendChild(createProductCard(item)));
     }
     catch {
-        document.write('Error')
+        console.error('Error');;
     }
 }
 addToContainerPopularProduct();
@@ -248,11 +200,7 @@ async function addToContainerPopularBrands() {
         data.forEach(item => popularBrandsContainer.appendChild(createPopularBrandCard(item)));
     }
     catch {
-        document.write('Error');
+        console.error('Error');;
     }
 }
-addToContainerPopularBrands();
-
-
-
-
+addToContainerPopularBrands(); 
