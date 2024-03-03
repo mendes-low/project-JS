@@ -79,6 +79,7 @@
 
 /* --------------------------- */
 
+/* header-bottom */
 .header-bottom_container {
     display: flex;
     justify-content: space-between;
@@ -156,6 +157,11 @@
 
 .actions-item p {
     font: 500 15px/22px 'Manrope';
+}
+
+.header-bottom {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--header-line);
 }
 
 /* ----------------------------------- */
@@ -249,6 +255,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 40px;
     width: 540px;
     padding: 24px;
 }
@@ -270,13 +277,45 @@
     width: 246px;
     border: none;
     padding: 12px 24px;
-    background-color: var(--button-default-background); 
+    background-color: var(--button-default-background);
 }
 
 .card-buttons {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.card-delivery {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+}
+
+.card-price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.old-price {
+    text-decoration: line-through;
+}
+
+.card-name h2 {
+    font: 600 34px/44px 'Manrope';
+}
+
+.card-price p {
+    font: 600 24px/31px 'Manrope';
+}
+
+.cart-button button {
+    font: 500 18px/24px 'Manrope';
+}
+
+.card-delivery {
+    font: 400 16px/24px 'Manrope';
 }
 
 /* ------------------------------------------ */

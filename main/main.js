@@ -1,5 +1,6 @@
-export { getStock, getPopularProducts }
+import { getStock, getPopularCategories, getPopularProducts, getPopularBrands } from "../data.js";
 
+// createCards
 function createStockCard(stock) {
     const stockCard = document.createElement("div");
     stockCard.classList.add("stock-card");
@@ -47,8 +48,13 @@ function createStockCard(stock) {
     stockCard.appendChild(imgBox);
     stockCard.appendChild(textBox);
 
+    stockCard.addEventListener('click', () => {
+        window.location.href = `../card/cards.html?id=${stock.id}`
+    })
+
     return stockCard;
 }
+
 function createPopularCategoryCard(data) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('popular-categories_card');
@@ -126,14 +132,6 @@ function createPopularBrandCard(brandData) {
 }
 
 // Stocks
-async function getStock() {
-    const stockUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards';
-    const response = await fetch(stockUrl);
-    const data = await response.json();
-    const stocks = data[0].stocks;
-    return stocks;
-}
-
 async function addToContainerStock() {
     try {
         const stockContainer = document.querySelector('.stocks-cards');
@@ -147,13 +145,6 @@ async function addToContainerStock() {
 addToContainerStock();
 
 // Popularcategories
-async function getPopularCategories() {
-    const popularCategoriesUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards';
-    const response = await fetch(popularCategoriesUrl);
-    const data = await response.json();
-    const categories = data[0].popularCategories;
-    return categories;
-}
 async function addToContainerPopularCategeries() {
     try {
         const popularCategoriesContainer = document.querySelector('.popular-categories_cards');
@@ -167,13 +158,6 @@ async function addToContainerPopularCategeries() {
 addToContainerPopularCategeries();
 
 // PopularProducts
-async function getPopularProducts() {
-    const popularProductsUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards';
-    const response = await fetch(popularProductsUrl);
-    const data = await response.json();
-    const products = data[0].popularProducts;
-    return products;
-}
 async function addToContainerPopularProduct() {
     try {
         const popularProductsContainer = document.querySelector('.popular-products_cards');
@@ -181,19 +165,12 @@ async function addToContainerPopularProduct() {
         data.forEach(item => popularProductsContainer.appendChild(createProductCard(item)));
     }
     catch {
-        console.error('Error');;
+        console.error('Error');
     }
 }
 addToContainerPopularProduct();
 
 // popularBrands
-async function getPopularBrands() {
-    const popularBrandsUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards'
-    const response = await fetch(popularBrandsUrl);
-    const data = await response.json();
-    const brands = data[0].popularBrands;
-    return brands;
-}
 async function addToContainerPopularBrands() {
     try {
         const popularBrandsContainer = document.querySelector('.popular-brands_cards');
@@ -205,4 +182,5 @@ async function addToContainerPopularBrands() {
     }
 }
 addToContainerPopularBrands();
+
 

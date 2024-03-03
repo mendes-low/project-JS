@@ -179,30 +179,6 @@ footer {
 
 /* ----------------------------------- */
 
-/* navbar
-.header-navbar {
-    max-height: 48px;
-    border: 1px solid var(--header-line);
-    border-left: none;
-    border-right: none;
-}
-
-.header-navbar_container {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin: 10px;
-}
-
-.header-navbar_container li {
-    color: var(--navbar-text);
-    font: 500 16px/24px 'Manrope';
-} */
-
-/* ------------------------------------ */
-
 /* stocks */
 .stocks,
 .popular-categories {
