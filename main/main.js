@@ -35,7 +35,13 @@ function createStockCard(stock) {
     textPrice.appendChild(oldPriceText);
 
     const button = document.createElement("button");
-    button.textContent = "В корзину";
+    if (isAddedToCartStock(stock)) {
+        button.textContent = 'Добавлено в корзину';
+        button.enabled = false;
+    } else {
+        button.textContent = "В корзину";
+        button.addEventListener("click", () => { addToCartStock(stock) });
+    }
 
     imgBox.appendChild(img);
 
@@ -48,7 +54,7 @@ function createStockCard(stock) {
     stockCard.appendChild(imgBox);
     stockCard.appendChild(textBox);
 
-    stockCard.addEventListener('click', () => {
+    textBox.addEventListener('click', () => {
         window.location.href = `../card/cards.html?id=${stock.id}`
     })
 
@@ -106,7 +112,13 @@ function createProductCard(productData) {
     price.appendChild(priceText);
 
     const button = document.createElement('button');
-    button.textContent = 'В корзину';
+    if (isAddedToCart(productData)) {
+        button.textContent = 'Добавлено в корзину';
+        button.enabled = false;
+    } else {
+        button.textContent = "В корзину";
+        button.addEventListener("click", () => { addToCart(productData) });
+    }
 
     textBox.appendChild(title);
     textBox.appendChild(price);
@@ -117,8 +129,13 @@ function createProductCard(productData) {
     cardContainer.appendChild(imgContainer);
     cardContainer.appendChild(bottomContainer);
 
+    textBox.addEventListener('click', () => {
+        window.location.href = `../card/cards.html?id=${productData.id}`
+    })
+
     return cardContainer;
 }
+
 function createPopularBrandCard(brandData) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('popular-brands_card');
@@ -183,4 +200,32 @@ async function addToContainerPopularBrands() {
 }
 addToContainerPopularBrands();
 
+function addToCartStock(data) {
+    const cart = JSON.parse(localStorage.getItem('cartStock')) || [];
+    if (cart.find((item) => item.id == data.id)) {
+        return
+    }
+    cart.push({ ...data, quantity: 1 });
+    localStorage.setItem('cartStock', JSON.stringify(cart));
+    window.location.reload();
+}
 
+function isAddedToCartStock(data) {
+    const cart = JSON.parse(localStorage.getItem("cartStock")) || [];
+    return cart.find((p) => p.id == data.id) != null;
+}
+
+function addToCart(data) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.find((item) => item.id == data.id)) {
+        return
+    }
+    cart.push({ ...data, quantity: 1 });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.reload();
+}
+
+function isAddedToCart(data) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    return cart.find((p) => p.id == data.id) != null;
+}

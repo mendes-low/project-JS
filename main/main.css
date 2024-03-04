@@ -12,6 +12,7 @@
     --stock-button-border: hsla(240, 2%, 82%, 1);
     --background-footer: #2F323A;
     --footer-text: hsla(210, 5%, 91%, 1);
+    --action-item-default: #454950;
 }
 
 * {
@@ -167,6 +168,8 @@ footer {
     align-items: center;
     gap: 2px;
     min-width: 82px;
+    text-decoration: none;
+    color: var(--action-item-default);
 }
 
 .actions-item ion-icon {

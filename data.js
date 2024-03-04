@@ -1,6 +1,5 @@
 export { getStock, getPopularCategories, getPopularProducts, getPopularBrands }
 
-
 async function getStock() {
     const stockUrl = 'https://65dc0e4a3ea883a152926eea.mockapi.io/api/stocksCards';
     const response = await fetch(stockUrl);
