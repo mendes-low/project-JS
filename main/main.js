@@ -1,4 +1,4 @@
-import { getStock, getPopularCategories, getPopularProducts, getPopularBrands } from "../data.js";
+import { getStock, getPopularCategories, getPopularProducts, getPopularBrands } from "../other/data.js";
 
 // createCards
 function createStockCard(stock) {
@@ -152,6 +152,7 @@ function createPopularBrandCard(brandData) {
     const img = document.createElement('img');
     img.setAttribute('src', brandData.image);
 
+    // img.src = brandData.image;
     cardDiv.appendChild(img);
 
     cardDiv.addEventListener('mouseenter', () => {
@@ -183,6 +184,7 @@ async function addToContainerPopularCategeries() {
     try {
         const popularCategoriesContainer = document.querySelector('.popular-categories_cards');
         const data = await getPopularCategories();
+        console.log(data);
         data.forEach(item => popularCategoriesContainer.appendChild(createPopularCategoryCard(item)));
     }
     catch {

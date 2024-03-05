@@ -1,5 +1,5 @@
-import { getStock, getPopularProducts } from '../data.js';
-// const stockData = await getStock();
+import { getPopularProducts } from '../other/data.js';
+// import { addToCart, isAddedToCart } from '../main/main.js';
 const popularProductsData = await getPopularProducts();
 
 // function changeStockCards(data) {
@@ -31,7 +31,7 @@ const popularProductsData = await getPopularProducts();
 function changePopularProductCards(data) {
     const url = window.location.href;
     const id = url.split('id=')[1];
-
+    
     const product = data.find(rest => rest.id == id);
 
     const stockImg = document.querySelector('.card_img img');
@@ -47,7 +47,19 @@ function changePopularProductCards(data) {
     const stockCurrentPrice = document.querySelector('#current-price');
     stockCurrentPrice.textContent = product.price + ' ₸';
 
+    // const button = document.querySelector('.cart-button');
+    // if (isAddedToCart(productData)) {
+    //     button.textContent = 'Добавлено в корзину';
+    //     button.enabled = false;
+    // } else {
+    //     button.textContent = "В корзину";
+    //     button.addEventListener("click", () => { addToCart(productData) });
+    // }
+
     return product;
 }
 changePopularProductCards(popularProductsData);
+
+// const addToCart = addToCart();
+// const isAddedToCart = isAddedToCart();
 
