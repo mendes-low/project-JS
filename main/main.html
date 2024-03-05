@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StroykaStore</title>
     <link rel="website icon" type="png" href="./images/zyro-image.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="./main.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -53,7 +58,7 @@
                             <ion-icon name="cube-outline"></ion-icon>
                             <p>Заказы</p>
                         </div>
-                        <a href="../cart/cart.html" target="_blank" class="actions-item actions-item_cart">
+                        <a href="../cart/cart.html" class="actions-item actions-item_cart">
                             <ion-icon name="cart-outline"></ion-icon>
                             <p>Корзина</p>
                         </a>
@@ -62,21 +67,44 @@
                 </div>
             </div>
         </section>
+
     </header>
 
     <main>
+        <!-- <div class="swiper" id="swiperId">
+            <div class="swiper-wrapper" id="wrapperId">
+                <div class="swiper-slide">
+                    <img src="../images/slider1.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../images/slider2.png" alt="">
+                </div>
+            </div>
+        </div> -->
+
+        <div class="slider-container">
+            <div class="slide">
+                <img src="../images/slider1.png" alt="">
+            </div>
+            <!-- <div class="slide">
+                <img src="../images/slider2.png" alt="">
+            </div> -->
+        </div>
+        <div class="slider-buttons">
+            <button id="prev"><ion-icon name="chevron-back-outline"></ion-icon></button>
+            <button id="next"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+        </div>
+
         <section class="stocks">
             <div class="stocks-container">
                 <div class="stock_title">
                     <h2>Акции</h2>
-                    <button>
+                    <button id="hoverEffect">
                         Все акции
                         <ion-icon name="chevron-forward-outline"></ion-icon>
                     </button>
                 </div>
-                <div class="stocks-cards">
-
-                </div>
+                <div class="stocks-cards"></div>
             </div>
         </section>
 
@@ -84,14 +112,12 @@
             <div class="popular-categories_container">
                 <div class="popular-categories_title">
                     <h2>Популярные категории</h2>
-                    <button>
+                    <button id="hoverEffect">
                         Все категории
                         <ion-icon name="chevron-forward-outline"></ion-icon>
                     </button>
                 </div>
-                <div class="popular-categories_cards">
-
-                </div>
+                <div class="popular-categories_cards"></div>
             </div>
         </section>
 
@@ -100,9 +126,7 @@
                 <div class="popular-products_title">
                     <h2>Популярные товары</h2>
                 </div>
-                <div class="popular-products_cards">
-
-                </div>
+                <div class="popular-products_cards"></div>
             </div>
         </section>
 
@@ -110,14 +134,12 @@
             <div class="popular-brands_container">
                 <div class="popular-brand_title">
                     <h2>Популярные бренды</h2>
-                    <button>
+                    <button id="hoverEffect">
                         Все бренды
                         <ion-icon name="chevron-forward-outline"></ion-icon>
                     </button>
                 </div>
-                <div class="popular-brands_cards">
-
-                </div>
+                <div class="popular-brands_cards"></div>
             </div>
         </section>
     </main>
@@ -210,6 +232,7 @@
 
 
     <script type="module" src="./main.js"></script>
+    <script src="../effects.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

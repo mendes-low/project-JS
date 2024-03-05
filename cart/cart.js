@@ -39,18 +39,13 @@ function createCartItem(productData) {
 
     const minusButton = document.createElement('button');
     minusButton.textContent = '-';
-    minusButton.innerHTML =
-        productData.quantity > 1
-            ? '-'
-            : '<ion-icon name="trash-outline"></ion-icon>'
-
+    minusButton.innerHTML = productData.quantity > 1 ? '-' : '<ion-icon name="trash-outline"></ion-icon>';
     minusButton.addEventListener('click', () => {
         decreaseQuantity(productData)
     });
 
     const quantityParagraph = document.createElement('p');
     quantityParagraph.textContent = productData.quantity;
-
 
     cartButtonQuantity.appendChild(minusButton);
     cartButtonQuantity.appendChild(quantityParagraph);
@@ -74,12 +69,8 @@ function createCartItem(productData) {
     return cartItem;
 }
 
-function removeProduct(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart = cart.filter((p) => p.id != product.id);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.reload();
-}
+
+
 function increaseQuantity(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart = cart.map((p) =>
@@ -101,6 +92,43 @@ function decreaseQuantity(product) {
     window.location.reload();
 }
 
+
+// Remove Product
+function removeProduct(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = cart.filter((p) => p.id != product.id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.reload();
+}
+
+
+// Get sum
+function getTotalPrice() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length == 0) {
+        return 0 + ' ₸';
+    } else {
+        const productsPrice = cart.reduce((acc, curr) => { return acc += curr.price * curr.quantity; }, 0);
+        return productsPrice + ' ₸';
+    }
+}
+const sumProducts = document.querySelector('#sum-products');
+sumProducts.textContent = getTotalPrice();
+
+// Get size
+function getSize() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+        return 0 + ' шт';
+    } else {
+        const productsSize = cart.reduce((acc, curr) => { return acc += curr.quantity; }, 0);
+        return productsSize + ' шт';
+    }
+}
+const quantityProducts = document.querySelector('#quantity-products');
+quantityProducts.textContent = getSize();
+
+// Add to cart-container
 const cartStocks = JSON.parse(localStorage.getItem("cartStock")) || [];
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 cartStocks.forEach(item => document.querySelector('.cart-items').appendChild(createCartItem(item)));

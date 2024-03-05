@@ -35,13 +35,14 @@ function createStockCard(stock) {
     textPrice.appendChild(oldPriceText);
 
     const button = document.createElement("button");
-    if (isAddedToCartStock(stock)) {
-        button.textContent = 'Добавлено в корзину';
-        button.enabled = false;
-    } else {
-        button.textContent = "В корзину";
-        button.addEventListener("click", () => { addToCartStock(stock) });
-    }
+    button.textContent = "В корзину";
+    // if (isAddedToCartStock(stock)) {
+    //     button.textContent = 'Добавлено в корзину';
+    //     button.enabled = false;
+    // } else {
+    //     button.textContent = "В корзину";
+    //     button.addEventListener("click", () => { addToCartStock(stock) });
+    // }
 
     imgBox.appendChild(img);
 
@@ -54,9 +55,9 @@ function createStockCard(stock) {
     stockCard.appendChild(imgBox);
     stockCard.appendChild(textBox);
 
-    textBox.addEventListener('click', () => {
-        window.location.href = `../card/cards.html?id=${stock.id}`
-    })
+    // imgBox.addEventListener('click', () => {
+    //     window.location.href = `../card/cards.html?id=${stock.id}`
+    // })
 
     return stockCard;
 }
@@ -79,6 +80,14 @@ function createPopularCategoryCard(data) {
 
     cardDiv.appendChild(textDiv);
     cardDiv.appendChild(imgDiv);
+
+    cardDiv.addEventListener('mouseenter', () => {
+        cardDiv.style.backgroundColor = 'hsla(55, 97%, 62%, 1)';
+        cardDiv.style.cursor = 'pointer';
+    });
+    cardDiv.addEventListener('mouseleave', () => {
+        cardDiv.style.backgroundColor = 'hsla(0, 0%, 96%, 1)';
+    });
 
     return cardDiv;
 }
@@ -145,6 +154,14 @@ function createPopularBrandCard(brandData) {
 
     cardDiv.appendChild(img);
 
+    cardDiv.addEventListener('mouseenter', () => {
+        cardDiv.style.border = '1px solid black';
+        cardDiv.style.cursor = 'pointer';
+    });
+    cardDiv.addEventListener('mouseleave', () => {
+        cardDiv.style.border = '1px solid lightgray';
+    });
+
     return cardDiv;
 }
 
@@ -200,20 +217,20 @@ async function addToContainerPopularBrands() {
 }
 addToContainerPopularBrands();
 
-function addToCartStock(data) {
-    const cart = JSON.parse(localStorage.getItem('cartStock')) || [];
-    if (cart.find((item) => item.id == data.id)) {
-        return
-    }
-    cart.push({ ...data, quantity: 1 });
-    localStorage.setItem('cartStock', JSON.stringify(cart));
-    window.location.reload();
-}
+// function addToCartStock(data) {
+//     const cart = JSON.parse(localStorage.getItem('cartStock')) || [];
+//     if (cart.find((item) => item.id == data.id)) {
+//         return
+//     }
+//     cart.push({ ...data, quantity: 1 });
+//     localStorage.setItem('cartStock', JSON.stringify(cart));
+//     window.location.reload();
+// }
 
-function isAddedToCartStock(data) {
-    const cart = JSON.parse(localStorage.getItem("cartStock")) || [];
-    return cart.find((p) => p.id == data.id) != null;
-}
+// function isAddedToCartStock(data) {
+//     const cart = JSON.parse(localStorage.getItem("cartStock")) || [];
+//     return cart.find((p) => p.id == data.id) != null;
+// }
 
 function addToCart(data) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];

@@ -125,6 +125,7 @@ footer {
     background-color: var(--button-default-background);
     padding: 12px 20px;
     gap: 8px;
+    color: var(--header-hover-background);
 }
 
 .catologe ion-icon {
@@ -501,4 +502,35 @@ footer {
     flex-shrink: 0;
 }
 
+.footer-bottom_active {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+} 
+
 /* -------------------------------------- */
+
+/* Slider */
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    width: 1160px;
+    overflow: hidden;
+}
+
+.slide {
+    width: 1160px;
+}
+
+.slide img {
+    width: 1160px;
+}
+
+#prev, #next {
+    border: none;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: red;
+}
